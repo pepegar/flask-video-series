@@ -8,6 +8,8 @@ flask = "*"
 flask-wtf = "*"
 flask-bootstrap = "*"
 email-validator = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
 
 [dev-packages]
 
