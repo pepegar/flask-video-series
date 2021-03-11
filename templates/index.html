@@ -4,7 +4,11 @@
 <div class="container theme-showcase" role="main" style="margin-top: 75px">
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
+        {% if current_user.is_authenticated %}
+        <h1>Hello {{current_user.email}}</h1>
+        {% else%}
         <h1>Hello world!</h1>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
