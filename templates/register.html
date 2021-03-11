@@ -1,14 +1,17 @@
-{% extends "bootstrap/base.html" %}
+{% extends "base.html" %}
+
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}Register{% endblock %}
+{% block title %}{{ super() }} | Register{% endblock %}
 
 {% block content %}
-<form action="{{ url_for('register') }}" method="POST">
-    {{ form.hidden_tag() }}
-    {{ wtf.form_field(form.email) }}
-    {{ wtf.form_field(form.password) }}
-    {{ wtf.form_field(form.repeat_password) }}
-    <input type="submit" value="register">
-</form>
+<div class="container theme-showcase" role="main" style="margin-top: 75px">
+    <form action="{{ url_for('register') }}" method="POST">
+        {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.email) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.repeat_password) }}
+        <input type="submit" value="register">
+    </form>
+</div>
 {% endblock %}
