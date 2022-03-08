@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect
 from flask.helpers import url_for
 from flask_bootstrap import Bootstrap
-from flask_login.utils import logout_user
+from flask_login.utils import login_required, logout_user
 from flask_wtf import FlaskForm
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -13,6 +13,8 @@ from wtforms.validators import Length, Email
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from dash_application import create_dash_application
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "THIS IS A SECRET, DON'T DO THIS!"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sqlite.db"
@@ -21,6 +23,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager()
 login.init_app(app)
+create_dash_application(app)
 
 
 @login.user_loader

@@ -11,6 +11,8 @@ email-validator = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
 flask-login = "*"
+dash = "*"
+pandas = "*"
 
 [dev-packages]
 
